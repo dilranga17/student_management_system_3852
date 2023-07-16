@@ -1,0 +1,133 @@
+﻿<Window x:Class="Desktop01.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop01"
+        mc:Ignorable="d"
+        Title="{Binding Title,UpdateSourceTrigger=PropertyChanged}" Height="450" Width="800"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+
+
+    <Window.DataContext>
+        <local:AddUserVM/>
+    </Window.DataContext>
+
+
+    <Grid Margin="20">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30"
+                              ShadowDepth="1"
+                              Opacity="0.4"/>
+        </Grid.Effect>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="20 0 0 20" Background="#efefef"></Border>
+        <Border CornerRadius="0 20 20 0" Background="#c73f69" Grid.Column="1"></Border>
+        
+
+        <Border
+                      CornerRadius="0 10 10 0"
+                      Grid.ColumnSpan="1" Height="450" Margin="0,0,0,0" VerticalAlignment="Top">
+
+            <Grid>
+
+
+                <StackPanel>
+                    <TextBlock Text="Enter Your Details !" HorizontalAlignment="Center" FontSize="15"
+                               Margin="15" FontFamily="times new roman"></TextBlock>
+                </StackPanel>
+
+
+
+
+                <StackPanel VerticalAlignment="Center"
+                                    Margin="75,0,50,0" Grid.ColumnSpan="2">
+
+                    <TextBlock Text="First Name:" Margin="5"/>
+
+                    <TextBox Text="{Binding Firstname, UpdateSourceTrigger=PropertyChanged}"
+                                     Margin="5" BorderBrush="#c5cbcc"
+                                     BorderThickness="0 0 0 1.5"/>
+
+                    <TextBlock Text="Last Name:" 
+                                       Margin="5" />
+
+                    <TextBox Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="5" BorderThickness="0 0 0 1.5" />
+
+                    <TextBlock Text="Age:" 
+                                       Margin="5" />
+
+                    <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
+                                     Margin="5"  BorderThickness="0 0 0 1.5"/>
+
+                    <TextBlock Text="DateOfBirth:"
+                                       Margin="5"/>
+
+                    <TextBox Text="{Binding Dateofbirth, UpdateSourceTrigger=PropertyChanged}"
+                                     Margin="5" BorderThickness="0 0 0 1.5" />
+
+                    <TextBlock Text="GPA" Height="20" Width="349" />
+                    <TextBox Text="{Binding Gpa, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="5" BorderThickness="0 0 0 1.5"/>
+                    <Button Content="Insert picture" 
+                                    Width="172"  
+                                    Style="{StaticResource mainbutten}"
+                                    Command="{Binding UploadPhotoCommand}"                                         
+                                    Height="43" Background="#c73f69" Margin="30" 
+                                    />
+
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+
+        <Border 
+                 CornerRadius="0 10 10 0"
+                 Grid.ColumnSpan="2" Height="410" Margin="253,0,0,0" VerticalAlignment="Top">
+
+            <Grid Margin="232,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400*"/>
+                    <ColumnDefinition Width="89*"/>
+                    <ColumnDefinition Width="18*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Width="275" Grid.ColumnSpan="3" Height="271" Margin="17,0,0,0">
+
+
+                    <Image Height="120"
+                                   Width="100" 
+                                   Source="{Binding SelectedImage, UpdateSourceTrigger=PropertyChanged}" />
+
+
+                    <StackPanel >
+                        <CheckBox Margin="10 60 0 30 "
+                              FontSize="13" Height="20" Width="239">
+                            <TextBlock><Run Foreground="Black" Text="I Agree with" /><Run Text=" "/><Run Foreground="#ffffff" 
+                         Text="terms and conditions"/></TextBlock>
+                        </CheckBox>
+                    </StackPanel>
+
+                    <Button Content="Save" Command="{Binding SaveCommand}" 
+                            Style="{StaticResource mainbutten}" 
+                            Margin="36,0,34,38" 
+                            Height="41"
+                            Width="136"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

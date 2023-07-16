@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Model\Images\A.png" />
+    <None Remove="Model\Images\B.png" />
+    <None Remove="Model\Images\C.png" />
+    <None Remove="Model\Images\D.png" />
+    <None Remove="Model\Images\E.png" />
+    <None Remove="Model\Images\F.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Model\Images\A.png" />
+    <Resource Include="Model\Images\F.png" />
+    <Resource Include="Model\Images\D.png" />
+    <Resource Include="Model\Images\C.png" />
+    <Resource Include="Model\Images\B.png" />
+    <Resource Include="Model\Images\E.png" />
+  </ItemGroup>
+
+</Project>
